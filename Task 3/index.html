@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shailendra Kumar | Full Stack Developer</title>
+  <meta name="description"
+    content="Personal portfolio of Shailendra Kumar — Full Stack Developer specializing in modern web apps, clean code, and creative UI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ── Cursor glow ── -->
+  <div id="cursor-glow"></div>
+
+  <!-- ── Navbar ── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>Shailendra Kumar<span class="logo-bracket">/&gt;</span>
+    </div>
+    <button id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-links">
+      <li><a href="#hero" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#resume" class="nav-link">Resume</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, World! 👋</p>
+      <h1 class="hero-name">I'm <span class="gradient-text">Shailendra Kumar</span></h1>
+      <div class="typewriter-wrapper">
+        <span class="typewriter-prefix">I build </span>
+        <span id="typewriter"></span><span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-sub">Full Stack Developer crafting elegant digital experiences with clean code and creative design.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Let's Talk</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/legend-shailendra" target="_blank" aria-label="LinkedIn"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="https://x.com/Shailendra_6589" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <img src="avatar.jpg" alt="Shailendra Kumar's profile" class="avatar-img" />
+      </div>
+      <div class="floating-badge badge-1"><i class="fab fa-react"></i> React</div>
+      <div class="floating-badge badge-2"><i class="fab fa-node-js"></i> Node</div>
+      <div class="floating-badge badge-3"><i class="fab fa-python"></i> Python</div>
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// who i am</span>
+        <h2>About <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p>Hey! I'm <strong>Shailendra Kumar</strong>, a passionate Full Stack Developer with a love for turning
+            complex problems
+            into simple, beautiful software solutions. I specialize in modern web technologies and enjoy building
+            products that make a difference.</p>
+          <p>With experience across the full stack — from pixel-perfect UIs to scalable back-end APIs — I bring a
+            holistic approach to every project I touch. When I'm not coding, you'll find me exploring the latest tech
+            trends, contributing to open source, or levelling up my design skills.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Years Exp.</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card-wrap">
+          <div class="about-info-card">
+            <div class="info-row"><span class="info-key">Name</span><span class="info-val">Shailendra Kumar</span></div>
+            <div class="info-row"><span class="info-key">Role</span><span class="info-val">Full Stack Developer</span>
+            </div>
+            <div class="info-row"><span class="info-key">Location</span><span class="info-val">Nagpur, India 🇮🇳</span></div>
+            <div class="info-row"><span class="info-key">Email</span><span
+                class="info-val">legendshailendra6589@gmail.com</span>
+            </div>
+            <div class="info-row"><span class="info-key">Availability</span><span class="info-val"><span
+                  class="badge-available">Open to work</span></span></div>
+            <a href="Resume.pdf" download class="btn btn-primary mt-1" id="download-cv">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// what i use</span>
+        <h2>My <span class="gradient-text">Skills</span></h2>
+      </div>
+      <div class="skills-categories reveal">
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Frontend & Web Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML</span>
+            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+            <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+            <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Frontend Development</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-chart-line"></i> Finance & Stock Market</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Stock Trading</span>
+            <span class="skill-tag">Investing</span>
+            <span class="skill-tag">Financial Modeling</span>
+            <span class="skill-tag">Financial Literacy</span>
+            <span class="skill-tag">Financial Analysis</span>
+            <span class="skill-tag">Market Research</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Software & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="skill-tag">Tally</span>
+            <span class="skill-tag"><i class="far fa-file-excel"></i> MS-Excel</span>
+            <span class="skill-tag"><i class="far fa-file-word"></i> MS-Word</span>
+            <span class="skill-tag">Research & Analytics</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-language"></i> Languages</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">English (Spoken)</span>
+            <span class="skill-tag">English (Written)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proficiency-bars reveal">
+        <h3 class="bars-title">Proficiency</h3>
+        <div class="bar-item">
+          <div class="bar-header"><span>Web Development (HTML/CSS/JS/React)</span><span>90%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>Financial Analysis & Modeling</span><span>85%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>MS-Excel & Tally</span><span>82%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="82"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-header"><span>Node.js</span><span>75%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="75"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// what i've built</span>
+        <h2>Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+      <div class="filter-tabs reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+      </div>
+      <div class="projects-grid reveal" id="projects-grid">
+
+        <div class="project-card" data-category="frontend">
+          <div class="project-img-wrap">
+            <div class="project-img project-img-1"></div>
+            <div class="project-overlay">
+              <a href="#" class="proj-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="proj-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Frontend</span>
+            <h3>Electric Pulse — Music Player</h3>
+            <p>A Spotify-style music player with a three-column layout, playlist management, real-time visualizer, and
+              smooth audio controls.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Web Audio API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="frontend">
+          <div class="project-img-wrap">
+            <div class="project-img project-img-2"></div>
+            <div class="project-overlay">
+              <a href="#" class="proj-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="proj-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Frontend</span>
+            <h3>Responsive Image Gallery</h3>
+            <p>A filterable image gallery with category tabs, lightbox viewer, smooth zoom animations, and keyboard
+              navigation support.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="backend">
+          <div class="project-img-wrap">
+            <div class="project-img project-img-3"></div>
+            <div class="project-overlay">
+              <a href="#" class="proj-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="proj-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Backend</span>
+            <h3>Binance Futures Trading Bot</h3>
+            <p>An automated crypto trading bot for Binance Futures with a Flask web UI, live order management, and
+              testnet integration.</p>
+            <div class="project-tech">
+              <span>Python</span><span>Flask</span><span>Binance API</span><span>SQLite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="frontend">
+          <div class="project-img-wrap">
+            <div class="project-img project-img-4"></div>
+            <div class="project-overlay">
+              <a href="#" class="proj-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="#" class="proj-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Frontend</span>
+            <h3>Calculator App</h3>
+            <p>A sleek, responsive calculator with standard arithmetic, real-time calculations, keyboard support, and
+              glassmorphic design.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Resume ── -->
+  <section id="resume">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// my journey</span>
+        <h2>Resume & <span class="gradient-text">Experience</span></h2>
+      </div>
+      <div class="resume-grid">
+        <div class="resume-col reveal">
+          <h3 class="resume-col-title"><i class="fas fa-briefcase"></i> Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">May 2026 – Present</span>
+                <h4>Frontend Development Intern</h4>
+                <p class="timeline-company">CodeAlpha, Virtual</p>
+                <p>Selected as a Frontend Development Intern. Ready to learn new technologies, build real-world projects, sharpen development skills, and grow as a developer.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Apr 2026 – May 2026</span>
+                <h4>Front-end Development Intern</h4>
+                <p class="timeline-company">Cognifyz IT Solutions Pvt. Ltd, Virtual</p>
+                <p>Focused on crafting responsive layouts, implementing interactive features, and creating visually compelling, user-friendly interfaces for real-world projects to enhance user experiences.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Feb 2026 – Apr 2026</span>
+                <h4>Capital Market Analyst</h4>
+                <p class="timeline-company">Pipraisers, Virtual</p>
+                <p>Global Markets internship focused on risk management, portfolio operations, structured training, expert mentorship, and managing a live client portfolio with investment strategies.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Jan 2026 – Feb 2026</span>
+                <h4>Finance And Stock Market Intern</h4>
+                <p class="timeline-company">CertiWise Hub, Virtual</p>
+                <p>Immersed in core aspects of financial services, moving from market concepts to practical investment strategies, portfolio management, risk management, and financial analysis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resume-col reveal">
+          <h3 class="resume-col-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">2024 – 2028</span>
+                <h4>B.Tech in Computer Science & Engineering</h4>
+                <p class="timeline-company">Yeshwantrao Chavan College Of Engineering (YCCE), Nagpur</p>
+                <p>Pursuing undergraduate studies in Computer Science & Engineering at a premier engineering college in Nagpur.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="resume-download reveal">
+        <a href="Resume.pdf" download class="btn btn-primary btn-lg" id="resume-download-btn">
+          <i class="fas fa-file-pdf"></i> Download Full Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// get in touch</span>
+        <h2>Contact <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <p class="contact-intro">I'm always open to new opportunities, collaborations, or just a friendly chat. Drop
+            me a message!</p>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">legendshailendra6589@gmail.com</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div>
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Nagpur, India 🇮🇳</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/legend-shailendra" target="_blank"
+                  class="contact-value">linkedin.com/in/legend-shailendra</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/" target="_blank" class="social-chip"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://x.com/Shailendra_6589" target="_blank" class="social-chip"><i class="fab fa-twitter"></i>
+              Twitter</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+              required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="send-btn">
+            <span id="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+            <span id="btn-loading" hidden><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+          </button>
+          <div id="form-success" class="form-success" hidden>
+            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>Shailendra Kumar<span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-copy">© 2026 Shailendra Kumar. Crafted with <span class="heart">♥</span></p>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <a href="#hero" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

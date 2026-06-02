@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify — Music Player</title>
+  <meta name="description" content="A Spotify-inspired music player with playlist, autoplay, and full audio controls." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== GLOBAL HEADER ===== -->
+  <header class="app-header">
+    <div class="header-left">
+      <button class="menu-dots-btn" id="menuDotsBtn" title="More options">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.5 10.5C3.67 10.5 3 11.17 3 12s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/></svg>
+      </button>
+      <button class="nav-arrow-btn" id="navBackBtn" title="Go back">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="nav-arrow-btn" id="navForwardBtn" title="Go forward">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <button class="header-home-btn" id="headerHomeBtn" title="Home">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      </button>
+      <div class="header-search-bar">
+        <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="headerSearchInput" placeholder="What do you want to play?" autocomplete="off" />
+        <button class="clear-search-btn" id="headerClearSearchBtn" style="display: none;">&times;</button>
+        <span class="search-divider"></span>
+        <button class="search-browse-btn" id="searchBrowseBtn" title="Browse">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><rect x="9" y1="14" width="6" height="4" rx="1" ry="1"></rect></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button class="header-icon-btn" id="whatsNewBtn" title="What's New">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+      </button>
+      <button class="header-icon-btn" id="friendActivityBtn" title="Friend Activity">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      </button>
+      <button class="profile-btn" id="profileBtn" title="Profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== APP SHELL (above playbar) ===== -->
+  <div class="spotify-app" id="playerCard">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" aria-label="Your Library" id="sidebar">
+
+      <div class="sidebar-library">
+        <div class="sidebar-library-header">
+          <span class="library-title" id="libraryTitleBtn" title="Collapse Library">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            Your Library
+          </span>
+          <div class="library-actions">
+            <button class="icon-round-btn" id="createPlaylistBtn" title="Create playlist">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+            <button class="icon-round-btn" id="collapseSidebarBtn" title="Collapse Library">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Autoplay toggle lives here -->
+        <div class="autoplay-row">
+          <label class="autoplay-label" for="autoplayToggle">
+            <input type="checkbox" id="autoplayToggle" checked />
+            <span class="autoplay-switch"><span class="autoplay-knob"></span></span>
+            <span class="autoplay-text">Autoplay</span>
+          </label>
+        </div>
+
+        <ul class="playlist" id="playlist" role="listbox" aria-label="Your Library"></ul>
+      </div>
+    </aside>
+
+    <!-- CENTER MAIN -->
+    <main class="main-content" id="mainContent">
+
+      <div class="main-hero" id="mainHero">
+        <div class="main-hero-bg" id="mainGradient"></div>
+        <div class="main-hero-overlay"></div>
+        <div class="main-hero-inner">
+          <img id="albumImg" class="hero-art" src="" alt="Album Art" />
+          <div class="hero-meta">
+            <span class="hero-type">SINGLE</span>
+            <h1 id="songTitle" class="hero-title">Loading…</h1>
+            <p class="hero-sub">
+              <span id="songArtist" class="hero-artist">—</span>
+              <span class="hero-dot">•</span>
+              <span id="songAlbum" class="hero-album">—</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-body">
+        <div class="main-body-actions">
+          <button class="body-play-btn" id="bodyPlayBtn" aria-label="Play">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="body-heart-btn" id="heartBtn" title="Save to Liked Songs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <button class="body-more-btn" title="More options">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+          </button>
+        </div>
+        <!-- Dynamic track table -->
+        <div class="track-table-container">
+          <div class="track-table" id="trackTable"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- RIGHT PANEL (Now Playing & Queue) -->
+    <aside class="right-panel visible" id="playlistPanel" aria-label="Now Playing">
+      <div class="right-panel-inner">
+        <div class="right-panel-header">
+          <h2 class="right-panel-title">Now Playing</h2>
+          <button class="icon-round-btn close-queue-btn" id="closeQueueBtn" title="Close">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+        </div>
+        
+        <!-- Large Now Playing Cover Art Card -->
+        <div class="now-playing-card">
+          <img id="rightPanelArt" class="now-playing-large-art" src="" alt="Album Cover" />
+          <div class="now-playing-meta">
+            <div id="rightPanelTitle" class="now-playing-large-title">—</div>
+            <div id="rightPanelArtist" class="now-playing-large-artist">—</div>
+          </div>
+        </div>
+
+
+      </div>
+    </aside>
+
+  </div><!-- /.spotify-app -->
+
+  <!-- ===== BOTTOM PLAYBAR ===== -->
+  <footer class="playbar">
+
+    <!-- Left: now-playing info -->
+    <div class="playbar-left">
+      <img id="albumImgBar" class="bar-art" src="" alt="Now playing" />
+      <div class="bar-track-info">
+        <div id="barSongTitle" class="bar-title">—</div>
+        <div id="barArtist" class="bar-artist">—</div>
+      </div>
+      <button class="bar-icon-btn" id="heartBtn2" title="Save to Liked Songs">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+    </div>
+
+    <!-- Center: controls + progress -->
+    <div class="playbar-center">
+      <div class="playbar-controls">
+        <button class="ctrl-icon" id="shuffleBtn" title="Shuffle" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+          <span class="ctrl-dot" id="shuffleDot"></span>
+        </button>
+        <button class="ctrl-icon" id="prevBtn" title="Previous">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+        </button>
+        <button class="play-btn" id="playPauseBtn" title="Play" aria-label="Play">
+          <span id="playIcon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M8 5v14l11-7z"/></svg></span>
+          <span id="pauseIcon" class="hidden"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg></span>
+        </button>
+        <button class="ctrl-icon" id="nextBtn" title="Next">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6 18l8.5-6L6 6v12zm2.5-6 5.5 4V8l-5.5 4zM16 6h2v12h-2z"/></svg>
+        </button>
+        <button class="ctrl-icon" id="repeatBtn" title="Repeat" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          <span class="ctrl-dot" id="repeatDot"></span>
+        </button>
+      </div>
+      <div class="playbar-progress">
+        <span id="currentTime" class="time-label">0:00</span>
+        <div class="progress-track" id="progressTrack" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+          <div class="progress-fill" id="progressFill"></div>
+          <div class="progress-thumb" id="progressThumb"></div>
+        </div>
+        <span id="totalDuration" class="time-label">0:00</span>
+      </div>
+    </div>
+
+    <!-- Right: volume -->
+    <div class="playbar-right">
+      <button class="bar-icon-btn" id="lyricsBtn" title="Lyrics">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="13.2" y="2" width="5.6" height="8.4" rx="2.8" transform="rotate(45 16 6.2)"/><path d="M11.1 11.3l-5.6 5.6c-.4.4-.4 1 0 1.4l.7.7c.4.4 1 .4 1.4 0l5.6-5.6"/><path d="M14.6 7.8c-.8.8-2.2.8-3 0s-.8-2.2 0-3"/></svg>
+      </button>
+      <button class="bar-icon-btn" id="togglePlaylistBtn" title="Queue">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="4" rx="2"/><line x1="3" y1="13" x2="21" y2="13"/><line x1="3" y1="19" x2="21" y2="19"/></svg>
+      </button>
+      <button class="bar-icon-btn" id="connectDeviceBtn" title="Connect to a device">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="12" height="10" rx="1"/><rect x="14" y="11" width="6" height="9" rx="1" fill="#121212"/><circle cx="17" cy="17" r="0.5" fill="currentColor"/><line x1="8" y1="16" x2="8" y2="19"/><line x1="6" y1="19" x2="14" y2="19"/></svg>
+      </button>
+      <button class="bar-icon-btn mute-btn" id="muteBtn" title="Mute">
+        <svg id="volIcon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path id="volWaves" d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+      </button>
+      <div class="volume-track" id="volumeTrack" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" tabindex="0">
+        <div class="volume-fill" id="volumeFill" style="width:80%"></div>
+        <div class="volume-thumb" id="volumeThumb" style="left:80%"></div>
+      </div>
+      <span id="volLabel" class="vol-label">80%</span>
+      <button class="bar-icon-btn" id="miniplayerBtn" title="Miniplayer">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><rect x="13" y="12" width="6" height="5" rx="1" fill="currentColor" stroke="none"/></svg>
+      </button>
+      <button class="bar-icon-btn" id="fullscreenBtn" title="Fullscreen">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg>
+      </button>
+    </div>
+
+  </footer>
+
+  <audio id="audioPlayer" preload="metadata"></audio>
+
+  <!-- ===== ADD TO PLAYLIST DROPDOWN ===== -->
+  <div class="dropdown-menu" id="playlistDropdown"></div>
+
+  <!-- ===== PLAYLIST OPTIONS DROPDOWN ===== -->
+  <div class="dropdown-menu" id="playlistOptionsDropdown">
+    <div class="dropdown-item" id="optRename">Rename Playlist</div>
+    <div class="dropdown-item" id="optClear">Clear Songs</div>
+    <div class="dropdown-item" id="optDelete" style="color: #ef4444;">Delete Playlist</div>
+  </div>
+
+  <!-- ===== MENU DROPDOWN ===== -->
+  <div class="dropdown-menu" id="menuDropdown">
+    <div class="dropdown-item" id="menuAbout">About Spotify</div>
+    <div class="dropdown-item" id="menuPrefs">Preferences</div>
+    <div class="dropdown-item" id="menuShortcuts">Keyboard Shortcuts</div>
+    <div class="dropdown-item" id="menuUpdates">Check for Updates...</div>
+  </div>
+
+  <!-- ===== BROWSE DROPDOWN ===== -->
+  <div class="dropdown-menu" id="browseDropdown">
+    <div class="dropdown-header">Explore Genres</div>
+    <div class="dropdown-item" data-pl="lofi">🌙 Lofi Beats</div>
+    <div class="dropdown-item" data-pl="synth">⚡ Synthwave</div>
+    <div class="dropdown-item" data-pl="smooth">🌅 Smooth & Ambient</div>
+    <div class="dropdown-item" data-pl="all">🎵 All Songs</div>
+  </div>
+
+  <!-- ===== NOTIFICATIONS DROPDOWN ===== -->
+  <div class="dropdown-menu" id="notificationsDropdown">
+    <div class="dropdown-header">What's New</div>
+    <div class="dropdown-item" style="pointer-events: none; opacity: 0.85; padding-bottom: 4px;">
+      <strong style="color: var(--green); font-size: 0.75rem;">NEW RELEASE</strong><br/>
+      Chill Lofi Vibes by Lo-Fi Dreams
+    </div>
+    <div class="dropdown-item" style="pointer-events: none; opacity: 0.85; padding-top: 4px; padding-bottom: 8px;">
+      <strong style="color: var(--green); font-size: 0.75rem;">TRENDING</strong><br/>
+      Electric Pulse is climbing the charts!
+    </div>
+    <div class="dropdown-item" id="clearNotifications" style="text-align: center; color: var(--text-muted); font-size: 0.75rem; border-top: 1px solid #3e3e3e; margin-top: 4px; padding-top: 8px;">
+      Dismiss all notifications
+    </div>
+  </div>
+
+  <!-- ===== FRIEND ACTIVITY DROPDOWN ===== -->
+  <div class="dropdown-menu" id="friendActivityDropdown">
+    <div class="dropdown-header">Friend Activity</div>
+    <div class="dropdown-item" style="pointer-events: none; opacity: 0.9; padding-bottom: 6px;">
+      👤 <strong style="color: var(--text);">Amit</strong> is listening to:<br/>
+      <span style="color: var(--green); font-size: 0.8rem;">Ocean Drive</span>
+    </div>
+    <div class="dropdown-item" style="pointer-events: none; opacity: 0.9; padding-top: 6px; padding-bottom: 8px;">
+      👤 <strong style="color: var(--text);">Priya</strong> is listening to:<br/>
+      <span style="color: var(--green); font-size: 0.8rem;">Golden Hour</span>
+    </div>
+    <div class="dropdown-item" id="findFriends" style="color: var(--green); text-align: center; border-top: 1px solid #3e3e3e; margin-top: 4px; padding-top: 8px;">
+      Find Friends
+    </div>
+  </div>
+
+  <!-- ===== PROFILE DROPDOWN ===== -->
+  <div class="dropdown-menu" id="profileDropdown">
+    <div class="dropdown-header" style="color: var(--text); text-transform: none; border-bottom: none; font-size: 0.85rem; padding-bottom: 8px;">
+      Logged in as:<br/>
+      <strong style="color: var(--green);">Shailendra Kumar</strong>
+    </div>
+    <div class="dropdown-item" id="profAccount" style="border-top: 1px solid #3e3e3e; padding-top: 8px;">Account Settings</div>
+    <div class="dropdown-item" id="profUpgrade" style="color: #fbbf24; font-weight: 600;">Upgrade to Premium</div>
+    <div class="dropdown-item" id="profLogout" style="border-top: 1px solid #3e3e3e; margin-top: 4px; padding-top: 8px;">Log Out</div>
+  </div>
+
+  <!-- ===== CREATE PLAYLIST MODAL ===== -->
+  <div class="modal-overlay hidden" id="playlistModal">
+    <div class="modal-content">
+      <h3>Create New Playlist</h3>
+      <input type="text" id="playlistInput" placeholder="My Awesome Playlist" maxlength="32" />
+      <div class="modal-buttons">
+        <button class="modal-btn cancel" id="cancelModalBtn">Cancel</button>
+        <button class="modal-btn create" id="createModalBtn">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast">Added to Playlist</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

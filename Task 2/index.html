@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A premium, fully-featured calculator with all arithmetic operations, keyboard support, and a stunning glassmorphism design." />
+  <title>Calculus — Premium Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Animated background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <main class="calculator-wrapper">
+    <div class="calculator" role="application" aria-label="Calculator">
+
+      <!-- Header -->
+      <div class="calc-header">
+        <span class="calc-title">Calculator</span>
+        <div class="header-dots" aria-hidden="true">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+      </div>
+
+      <!-- Display -->
+      <div class="display-section" aria-live="polite" aria-atomic="true">
+        <div id="expression" class="expression" aria-label="Expression">0</div>
+        <div id="result-preview" class="result-preview" aria-label="Result preview"></div>
+      </div>
+
+      <!-- Keyboard hint -->
+      <div class="keyboard-hint" aria-label="Keyboard shortcut hint">
+        <span class="hint-icon">⌨</span> Keyboard supported
+      </div>
+
+      <!-- Button grid -->
+      <div class="button-grid" id="button-grid">
+
+        <!-- Row 1: AC, +/-, %, ÷ -->
+        <button class="btn btn-func" id="btn-ac" data-action="clear" aria-label="All Clear">AC</button>
+        <button class="btn btn-func" id="btn-sign" data-action="sign" aria-label="Toggle sign">+/−</button>
+        <button class="btn btn-func" id="btn-percent" data-action="percent" aria-label="Percent">%</button>
+        <button class="btn btn-op" id="btn-divide" data-action="operator" data-value="÷" aria-label="Divide">÷</button>
+
+        <!-- Row 2: 7, 8, 9, × -->
+        <button class="btn btn-num" id="btn-7" data-action="number" data-value="7" aria-label="7">7</button>
+        <button class="btn btn-num" id="btn-8" data-action="number" data-value="8" aria-label="8">8</button>
+        <button class="btn btn-num" id="btn-9" data-action="number" data-value="9" aria-label="9">9</button>
+        <button class="btn btn-op" id="btn-multiply" data-action="operator" data-value="×"
+          aria-label="Multiply">×</button>
+
+        <!-- Row 3: 4, 5, 6, − -->
+        <button class="btn btn-num" id="btn-4" data-action="number" data-value="4" aria-label="4">4</button>
+        <button class="btn btn-num" id="btn-5" data-action="number" data-value="5" aria-label="5">5</button>
+        <button class="btn btn-num" id="btn-6" data-action="number" data-value="6" aria-label="6">6</button>
+        <button class="btn btn-op" id="btn-minus" data-action="operator" data-value="−" aria-label="Subtract">−</button>
+
+        <!-- Row 4: 1, 2, 3, + -->
+        <button class="btn btn-num" id="btn-1" data-action="number" data-value="1" aria-label="1">1</button>
+        <button class="btn btn-num" id="btn-2" data-action="number" data-value="2" aria-label="2">2</button>
+        <button class="btn btn-num" id="btn-3" data-action="number" data-value="3" aria-label="3">3</button>
+        <button class="btn btn-op" id="btn-plus" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+        <!-- Row 5: 0 (wide), ., = -->
+        <button class="btn btn-num btn-zero" id="btn-0" data-action="number" data-value="0" aria-label="0">0</button>
+        <button class="btn btn-num" id="btn-dot" data-action="decimal" aria-label="Decimal point">.</button>
+        <button class="btn btn-eq" id="btn-equal" data-action="equals" aria-label="Equals">=</button>
+
+      </div>
+
+      <!-- History Panel -->
+      <div class="history-panel" id="history-panel" aria-label="Calculation history">
+        <div class="history-header">
+          <span>History</span>
+          <button class="clear-history-btn" id="clear-history" aria-label="Clear history">Clear</button>
+        </div>
+        <ul class="history-list" id="history-list" aria-live="polite">
+          <li class="history-empty">No calculations yet</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

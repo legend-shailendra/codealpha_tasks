@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luminary Gallery — Explore the World</title>
+  <meta name="description" content="A stunning image gallery showcasing breathtaking landscapes, cityscapes, and natural wonders from around the world." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">Luminary</span>
+      </div>
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a href="#gallery" class="nav-link active">Gallery</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Visual Storytelling</p>
+      <h1 class="hero-title">
+        Explore the World<br />
+        <em>Through Light</em>
+      </h1>
+      <p class="hero-subtitle">
+        A curated collection of breathtaking photography spanning mountains,
+        oceans, cities, and beyond — each frame telling its own story.
+      </p>
+      <a href="#gallery" class="hero-cta" id="hero-cta-btn">View Gallery</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Collection</p>
+      <h2 class="section-title">Browse by Category</h2>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" id="filter-bar" role="tablist" aria-label="Image categories">
+      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" id="filter-all">All</button>
+      <button class="filter-btn" data-filter="nature" role="tab" aria-selected="false" id="filter-nature">🌿 Nature</button>
+      <button class="filter-btn" data-filter="landscape" role="tab" aria-selected="false" id="filter-landscape">🏔 Landscape</button>
+      <button class="filter-btn" data-filter="urban" role="tab" aria-selected="false" id="filter-urban">🌆 Urban</button>
+      <button class="filter-btn" data-filter="cosmic" role="tab" aria-selected="false" id="filter-cosmic">✨ Cosmic</button>
+    </div>
+
+    <!-- Image Filter Controls -->
+    <div class="image-filter-bar" id="image-filter-bar">
+      <span class="filter-label">Image Filters:</span>
+      <button class="img-filter-btn active" data-css-filter="none" id="img-filter-none">Normal</button>
+      <button class="img-filter-btn" data-css-filter="grayscale(100%)" id="img-filter-bw">B&amp;W</button>
+      <button class="img-filter-btn" data-css-filter="sepia(80%)" id="img-filter-sepia">Sepia</button>
+      <button class="img-filter-btn" data-css-filter="saturate(200%) contrast(110%)" id="img-filter-vivid">Vivid</button>
+      <button class="img-filter-btn" data-css-filter="hue-rotate(30deg) saturate(150%)" id="img-filter-cool">Cool</button>
+      <button class="img-filter-btn" data-css-filter="brightness(110%) contrast(90%) sepia(20%)" id="img-filter-warm">Warm</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <article class="gallery-card" data-category="landscape" data-index="0" id="card-0" tabindex="0" role="button" aria-label="Mountains - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/mountains.png" alt="Misty mountain peaks at golden hour" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Mountain Peaks</h3>
+          <p class="card-meta"><span class="card-category-badge">Landscape</span> • Aerial Photography</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="nature" data-index="1" id="card-1" tabindex="0" role="button" aria-label="Ocean Reef - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/ocean.png" alt="Vibrant underwater coral reef" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Coral Kingdom</h3>
+          <p class="card-meta"><span class="card-category-badge">Nature</span> • Underwater</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="urban" data-index="2" id="card-2" tabindex="0" role="button" aria-label="City Skyline - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/city.png" alt="Futuristic city skyline at night" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Neon Metropolis</h3>
+          <p class="card-meta"><span class="card-category-badge">Urban</span> • Night Photography</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="nature" data-index="3" id="card-3" tabindex="0" role="button" aria-label="Enchanted Forest - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/forest.png" alt="Bioluminescent enchanted forest" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Enchanted Grove</h3>
+          <p class="card-meta"><span class="card-category-badge">Nature</span> • Fantasy</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="landscape" data-index="4" id="card-4" tabindex="0" role="button" aria-label="Desert Dunes - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/desert.png" alt="Sahara desert dunes at sunrise" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Golden Dunes</h3>
+          <p class="card-meta"><span class="card-category-badge">Landscape</span> • Sahara</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="cosmic" data-index="5" id="card-5" tabindex="0" role="button" aria-label="Aurora Borealis - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/aurora.png" alt="Northern Lights aurora borealis" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Aurora Dreams</h3>
+          <p class="card-meta"><span class="card-category-badge">Cosmic</span> • Arctic Lights</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="nature" data-index="6" id="card-6" tabindex="0" role="button" aria-label="Tropical Waterfall - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/waterfall.png" alt="Tropical waterfall in rainforest" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Hidden Falls</h3>
+          <p class="card-meta"><span class="card-category-badge">Nature</span> • Tropical</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="nature" data-index="7" id="card-7" tabindex="0" role="button" aria-label="Wildflower Meadow - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/wildflowers.png" alt="Colorful wildflower meadow in spring" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Bloom Season</h3>
+          <p class="card-meta"><span class="card-category-badge">Nature</span> • Macro</p>
+        </div>
+      </article>
+
+      <article class="gallery-card" data-category="landscape" data-index="8" id="card-8" tabindex="0" role="button" aria-label="Volcano Eruption - Open in lightbox">
+        <div class="card-img-wrap">
+          <img src="images/volcano.png" alt="Active volcano eruption at night" class="card-img" loading="lazy" />
+          <div class="card-overlay">
+            <span class="card-overlay-icon">⤢</span>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Fire &amp; Earth</h3>
+          <p class="card-meta"><span class="card-category-badge">Landscape</span> • Volcanic</p>
+        </div>
+      </article>
+
+    </div><!-- /.gallery-grid -->
+
+    <!-- Empty state -->
+    <div class="gallery-empty hidden" id="gallery-empty">
+      <p>No images in this category yet.</p>
+    </div>
+
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">Crafted with Light</h2>
+        <p class="about-body">
+          Luminary Gallery is a celebration of the world's most breathtaking moments, 
+          captured through the lens. From towering mountain peaks to the silent depths 
+          of the ocean, every photograph is a window into wonder.
+        </p>
+        <ul class="about-stats">
+          <li><strong>9</strong><span>Photographs</span></li>
+          <li><strong>4</strong><span>Categories</span></li>
+          <li><strong>6</strong><span>Image Filters</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <p>✦ Luminary Gallery &nbsp;·&nbsp; Built with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox" hidden>
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+
+    <div class="lightbox-container">
+      <!-- Close -->
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">✕</button>
+
+      <!-- Image area -->
+      <div class="lightbox-image-area">
+        <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+      </div>
+
+      <!-- Caption -->
+      <div class="lightbox-caption">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-meta" id="lightbox-meta"></p>
+      </div>
+
+      <!-- Navigation -->
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+        <span class="nav-arrow">&#8592;</span>
+      </button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">
+        <span class="nav-arrow">&#8594;</span>
+      </button>
+
+      <!-- Counter -->
+      <div class="lightbox-counter" id="lightbox-counter">1 / 9</div>
+
+      <!-- Thumbnail strip -->
+      <div class="lightbox-thumbs" id="lightbox-thumbs"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
