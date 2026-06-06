@@ -57,7 +57,7 @@ A gorgeous calculator application featuring a sleek glassmorphic container and v
 
 ---
 
-### 💻 Task 3: Shail's Developer Portfolio
+### 💻 Task 3: Shailendra's Developer Portfolio
 A personal, single-page portfolio website designed to showcase projects, skills, resume, and experience in a modern tech-themed design.
 
 *   **Design & Aesthetics:** Built using neon accents, a dark background with an interactive HTML5 particles canvas, Outfit and JetBrains Mono typography, custom cursor-glow tracker, and scroll-triggered animations.
